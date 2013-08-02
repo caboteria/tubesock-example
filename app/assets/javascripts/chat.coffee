@@ -6,10 +6,10 @@ $ ->
     event.preventDefault()
     $input = $form.find("input#message")
     message = $input.val()
-    socket.send(JSON.stringify(message: message))
+    socket.send(message)
     $input.val("")
 
   $output = $("#output")
 
   socket.onmessage = (event) ->
-    $output.append(JSON.parse(event.data).message + "\n")
+    $output.append(event.data + "\n")
